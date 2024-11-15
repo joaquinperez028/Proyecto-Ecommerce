@@ -1,0 +1,41 @@
+.principal{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContacto{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContacto input[type="submit"]{
+    width: 50%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formContacto h1{
+    color: black;
+}
+
+.formContacto input[type="text"]{
+    width: 100%;
+    padding: 10px;
+}
+
+.mensaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

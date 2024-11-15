@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    display: block;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+table th {
+    background-color: #555;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+select, input[type="text"], input[type="submit"], input[type="file"] {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+
+.btn-descargar {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-descargar:hover {
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    table th, table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    form {
+        width: 100%;
+    }
+
+    select, input[type="text"], input[type="submit"] {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table th {
+        display: none; 
+    }
+
+    table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        color: #555;
+        white-space: nowrap;
+    }
+    
+    main {
+        margin: 10px;
+        padding: 10px;
+    }
+}

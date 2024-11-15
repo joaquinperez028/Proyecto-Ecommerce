@@ -1,0 +1,118 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111; /* Fondo oscuro */
+    color: #f1f1f1; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Contenedor principal para productos con Flexbox */
+.contenedorProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Estilo individual de cada producto */
+.producto {
+    background-color: #222; /* Fondo oscuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    padding: 15px;
+    text-align: center;
+    flex-basis: 250px; /* Ancho fijo de la tarjeta */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave */
+}
+
+.producto:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra más profunda */
+    position: relative;
+}
+
+/* Imagen del producto */
+.imagenProducto img {
+    width: 300px; /* Ancho fijo */
+    height: 400px; /* Alto fijo */
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio */
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.imagenProducto img:hover {
+    transform: scale(1.05); /* Efecto de zoom en la imagen */
+}
+
+/* Información del producto */
+.infoProducto {
+    margin-top: 10px;
+    color: #f1f1f1; /* Texto claro */
+}
+
+.infoProducto p {
+    color: #999; /* Texto más claro */
+    font-size: 14px;
+}
+
+.infoProducto .precio {
+    color: silver; /* Texto plateado */
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Estilo del formulario */
+form {
+    margin-top: 15px;
+}
+
+/* Botón de envío */
+input[type="submit"] {
+    background-color: #555; /* Botón oscuro */
+    color: silver; /* Texto plateado */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Animación de color */
+}
+
+input[type="submit"]:hover {
+    background-color: silver; /* Cambia a plateado al pasar el mouse */
+    color: #111; /* Texto oscuro */
+}
+
+/* Pie de página */
+footer {
+    background-color: #333; /* Fondo oscuro */
+    color: silver; /* Texto plateado */
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Queries para responsividad */
+@media only screen and (max-width: 768px) {
+    .producto {
+        flex-basis: 100%; /* Las tarjetas ocuparán el 100% en pantallas pequeñas */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .producto {
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}

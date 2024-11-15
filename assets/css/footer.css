@@ -1,0 +1,63 @@
+/* Estilos generales para el footer */
+footer {
+    background-color: #5f5f5f;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    max-height: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilos para el contenedor principal */
+.contenedor-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+/* Estilos para los contenedores */
+.contenedor {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Animaciones al pasar el cursor */
+.contenedor:hover {
+    background-color: #444;
+}
+
+.marca{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #363636;
+    padding: 5px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    footer{
+        position: relative;
+        max-height: 100%;
+    }
+
+    .contenedor-principal {
+        flex-direction: column;
+    }
+    .contenedor {
+        margin-bottom: 10px;
+    }
+    .contenedor:last-child {
+        margin-bottom: 0;
+    }
+}

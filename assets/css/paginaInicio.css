@@ -1,0 +1,179 @@
+       /* General Styles */
+       * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Header */
+
+    .Bienvenido{
+        color: black;
+        margin-top: 10px;
+    }
+
+    /* Banner Section */
+    .bannerPrincipal {
+        background-color: #e0e0e0;
+        background-image: url(../imagenes/Banner.jpeg);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 20px 0;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease;
+    }
+
+    #Banner img{
+        object-fit: contain; 
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+
+    .bannerPrincipal:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Ranking Carousel Section */
+    .carrusel {
+        background-color: #dcdcdc;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .producto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        min-width: 200px;
+        margin: 0 10px;
+        scroll-snap-align: start;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .producto p, img{
+        padding: 5px;
+    }
+
+    #imagenes{
+        max-width: 240px;
+    }
+
+    .producto:hover {
+        transform: scale(1.05);
+    }
+
+    /* Button */
+    .verProductos {
+        display: block;
+        text-align: center;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #333;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .verProductos:hover {
+        background-color: #555;
+    }
+
+    .boton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #verProductos{
+        text-decoration: none;
+        color: #dcdcdc;
+        background-color: #555;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+    }
+
+    #verProductos:hover{
+        transition: background-color 0.3s;
+        background-color: #dcdcdc;
+        color: #555;
+    }
+
+    .formVer input[type="submit"]{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #555; /* Botón oscuro */
+        color: silver; /* Texto plateado */
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s; /* Animación de color */
+
+    }
+
+    .ranking {
+        display: flex;
+        flex-direction: column;
+    }
+    /* Info Section */
+    .infoEmpresa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #dcdcdc;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: #333;
+        margin: 20px 0;
+        font-size: 18px;
+    }
+
+    .infoEmpresa h2{
+        background-color: #bdbdbd;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .infoEmpresa p{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .bannerPrincipal, .carrusel, .infoEmpresa {
+            margin: 10px 0;
+        }
+
+        .producto {
+            min-width: 150px;
+        }
+    }

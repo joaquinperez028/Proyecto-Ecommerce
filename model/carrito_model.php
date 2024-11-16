@@ -51,6 +51,8 @@ public function cantidadProductosEnCarrito(){
     return true;
 }
 
+
+//RF-05
 public function agregarProductoCarrito($ID_Producto, $precio, $talle, $cantidad, $color){
 
     $CarritoID = $this->pdo->prepare('SELECT ID_Carrito FROM carrito WHERE ID_Usuario = :id_usuario AND estado = "activo" ');
@@ -63,6 +65,7 @@ public function agregarProductoCarrito($ID_Producto, $precio, $talle, $cantidad,
     return true;
 
 }
+
 
 public function obtenerProductosEnCarrito($ID_Usuario){
 
@@ -89,6 +92,7 @@ public function obtenerProductosEnCarrito($ID_Usuario){
     return $productosEnCarrito;
 }
 
+//RF-07
 public function eliminarDelCarrito($ID_Producto){
     $stmt = $this->pdo->prepare('DELETE FROM unioncarritoproducto WHERE ID_unionCarritoProducto = :ID_unionCarritoProducto');
     $stmt->execute(['ID_unionCarritoProducto' => $ID_Producto]);
@@ -96,6 +100,7 @@ public function eliminarDelCarrito($ID_Producto){
     return true;
 }
 
+//RF-07
 public function vaciarCarrito($ID_Usuario){
 
     $stmt = $this->pdo->prepare('DELETE u.* 

@@ -60,6 +60,7 @@ class Pedido {
         return $total;
     }
 
+    //RF-06
     public function generarPedido($total, $ID_Carrito){
 
         $obtenerCarrito = $this->pdo->prepare('
@@ -72,6 +73,7 @@ class Pedido {
         $obtenerCarrito->execute(['ID_Carrito' => $ID_Carrito]);
         $carritoItems = $obtenerCarrito->fetchAll(PDO::FETCH_ASSOC);
 
+        //RF-10
         foreach ($carritoItems as $item) {
             
             $cantidadSolicitada = $item['cantidadSolicitada'];
@@ -81,7 +83,7 @@ class Pedido {
             $consultarTipoStock = $this->pdo->prepare('SELECT p.tipoStock FROM producto as p WHERE p.ID_Producto = :ID_Producto');
             $consultarTipoStock->execute(['ID_Producto' => $productoID]);
             $consultarTipoStock = $consultarTipoStock->fetchColumn();
-
+            
             if($consultarTipoStock != "produccion"){
                 $consultarStock = $this->pdo->prepare('
                 SELECT cantidad 
@@ -153,6 +155,7 @@ class Pedido {
         return preg_match($validacion, $name);
     }
 
+    //RF-06
     public function crearOrden($nombre, $apellido, $cedula, $email, $departamento, $ciudad, $dirEnvio, $telefono, $tipoPago, $tipoEnvio, $ID_Pedido, $ID_Usuario){
 
         if(!self::corroborarCaracteresEspeciales($nombre)){

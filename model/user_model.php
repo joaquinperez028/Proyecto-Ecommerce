@@ -15,6 +15,8 @@ class User {
         $this->pdo = getConnection();
     }
 
+    //RF 00
+
     public function register($name, $email, $password, $password2, $opcionSeguridad, $respuestaSeguridad) {
         
         $mensajeError = '';
@@ -72,7 +74,7 @@ class User {
         
         return ['error' => '', 'status' => true];
 
-    } // function register
+    } 
 
     
     private function corroborarUsuario($name) {
@@ -91,6 +93,7 @@ class User {
         return preg_match($validacion, $password);
     }
 
+    //RF 02
     public function recuperarContraseña($email) {
         if(self::buscarEmail($email)) {
             $stmt = $this->pdo->prepare('SELECT ID, preguntaSeguridad FROM clientes WHERE email = :email');
@@ -113,6 +116,7 @@ class User {
         return $user;
     }
 
+    //RF 02
     public function cambiarPassword($password, $password2, $idUsuario) {
 
         $mensajeError= '';
@@ -147,6 +151,7 @@ class User {
         return ['status' => true];
     }
 
+    //RF 02
     public function buscarRespuesta($respuestaSeguridad, $idUsuario) {
         $stmt = $this->pdo->prepare('SELECT respuestaSeguridad, ID FROM clientes WHERE ID = :ID');
         $stmt->execute(['ID' => $idUsuario]);
@@ -159,6 +164,7 @@ class User {
         }
     }
 
+    //RF 02
     private function buscarEmail($email){
     
           $stmt = $this->pdo->prepare('SELECT * FROM clientes WHERE email = :email');  
@@ -173,6 +179,7 @@ class User {
 
     }
 
+    //RF 01
     public function login($email, $password) {
         // Preparar la consulta SQL para seleccionar al clientes por su email       
         $stmt = $this->pdo->prepare('SELECT * FROM clientes WHERE email = :email');

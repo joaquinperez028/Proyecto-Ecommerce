@@ -10,6 +10,7 @@ class Productos {
         $this->pdo = getConnection();
     }
 
+    //RF-04
     public function crearCategoria($nombreCategoria){
 
         if(!self::buscarCategoria($nombreCategoria)){
@@ -25,6 +26,7 @@ class Productos {
 
     }
 
+
     public function obtenerCategorias() {
         $stmt = $this->pdo->prepare('SELECT * FROM categoria');
         $stmt->execute();
@@ -39,6 +41,7 @@ class Productos {
         return $categorias;
     }
 
+    //RF-04
     public function actualizarCategoria($catModificada, $idCategoria){
 
         $stmt = $this->pdo->prepare('UPDATE categoria SET Nombre = :Nombre WHERE categoria.ID_Categoria = :ID_Categoria');
@@ -53,6 +56,7 @@ class Productos {
 
     }
 
+    //RF-04
     public function eliminarCategoria($idCategoria){
         $stmt = $this->pdo->prepare('DELETE FROM categoria WHERE categoria.ID_Categoria = :ID_Categoria');
         $stmt->execute(['ID_Categoria' => $idCategoria]);
@@ -171,6 +175,7 @@ class Productos {
 
     }
 
+    //RF-04
     public function agregarProductoConImagenes($nombreProducto, $nombreCategoria, $colores, $talles, $precio, $descripcionProducto, $imagenes, $idAdmin, $tipoStock, $stockPorTalle) {
         $estado = 'Stock controlado';
         // Iniciar una transacción para asegurar que ambos inserts se realicen correctamente
@@ -320,6 +325,7 @@ class Productos {
     }
     
 
+    //RF-04
     public function eliminarProducto($ID_Producto){
 
         if(empty($ID_Producto)){
@@ -352,6 +358,8 @@ class Productos {
         return $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+
+    //RF-04
     private function eliminarImagenes($ID_Producto){
         
         if(empty($ID_Producto)){
@@ -366,6 +374,7 @@ class Productos {
         return $ImagenProducto;
     }
     
+    //RF-04
     public function eliminarImagenUnica($ID_Imagen, $ID_Producto){
         
         $img = $this->pdo->prepare('SELECT ruta_imagen FROM imagenproducto WHERE id_imagen = :id_imagen');
@@ -383,6 +392,7 @@ class Productos {
         return true;
     }
 
+    //RF-04
     public function actualizarProducto($ID_Producto, $opcionModificada, $modificacion){
 
         if(empty($ID_Producto) || empty($opcionModificada) || empty($modificacion)){
@@ -400,6 +410,7 @@ class Productos {
 
     }
 
+    //RF-04
     public function modificarCategoria($catModificada, $ID_Producto){
 
         $categoria = $this->pdo->prepare('SELECT ID_Categoria FROM categoria WHERE Nombre = :Nombre');
@@ -419,6 +430,7 @@ class Productos {
         }
     }
 
+    //RF-04
     public function quitarProduccion($ID_Producto){
 
         $stmt = $this->pdo->prepare('UPDATE producto SET estado = :estado WHERE producto.ID_Producto = :ID_Producto');
@@ -428,6 +440,7 @@ class Productos {
 
     }
 
+    //RF-04
     public function agregarAProduccion($ID_Producto){
         $stmt = $this->pdo->prepare('UPDATE producto SET estado = :estado WHERE producto.ID_Producto = :ID_Producto');
         $stmt-> execute(['ID_Producto' => $ID_Producto, 'estado' => "En produccion"]);
@@ -435,6 +448,7 @@ class Productos {
         return $estadoAct;
     }
 
+    //RF 09
     public function generarRanking(){
 
     $stmt = $this->pdo->prepare('
@@ -457,7 +471,8 @@ class Productos {
     return true;
 
     }
-
+    
+    //RF 09
     public function obtenerProductosRanking(){
         $consultaRanking = $this->pdo->prepare("
             SELECT p.Nombre, MIN(i.ruta_imagen) AS ruta_imagen , r.veces_vendido, p.ID_Producto
